@@ -1,6 +1,6 @@
 # Proyecto 3
 # Face Morphing
-Universidad ICESI  
+Universidad Icesi  
 Curso: Fotografia Computacional
 
 Profesor: Carlos Alberto Arce Lopera
