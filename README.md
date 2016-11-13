@@ -43,9 +43,7 @@ los resultados obtenidos para procesar los puntos se encontraban en formato JSON
           "x": 27.565067,
           "y": 41.2646
         },
-        .
-        .
-        .
+       
 ```
 
 Los valores generados por Face ++ fueron almacenados en archivos txt, que posteriormente fueron procesados para quedar en un formato mas facil de leer, el cual se muestra a continuacion.
