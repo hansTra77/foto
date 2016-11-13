@@ -2,7 +2,9 @@
 # Face Morphing
 Universidad ICESI  
 Curso: Fotografia Computacional
+
 Profesor: Carlos Alberto Arce Lopera
+
 Estudiantes: Juan Pablo Medina Mora, Nelson David Padilla Hernández, David Ernesto Quiñónez Bolaños
 
 Link: 
