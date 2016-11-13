@@ -188,6 +188,8 @@ El anterior proceso se realizo dentro de un for que modificaba el valor del alfa
 
 Finalmente se realizaron los gif animados.
 
+## Resultados obtenidos
+
 
 ## Problemas encontrados en el desarrollo
 
