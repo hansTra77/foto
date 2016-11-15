@@ -48,6 +48,116 @@ los resultados obtenidos para procesar los puntos se encontraban en formato JSON
        
 ```
 
+
+
+
+
+```python
+    subdiv = cv2.Subdiv2D(rect);
+
+    
+    points = [];
+    
+    
+    with open("6.JPG.txt") as file :
+        for line in file :
+            x, y = line.split()
+            points.append((int(x), int(y)))
+
+    
+    for p in points :
+        subdiv.insert(p)
+        
+       
+        if animate :
+            img_copy = img_orig.copy()
+            # Draw delaunay triangles         
+            draw_delaunay( img_copy, subdiv, (255, 255, 255) );
+            cv2.imshow(win_delaunay, img_copy)
+            cv2.waitKey(100)
+
+    draw_delaunay( img, subdiv, (255, 255, 255) ); 
+
+    triangleList = subdiv.getTriangleList();
+    tris = [];
+    size = img.shape
+    r = (0, 0, size[1], size[0])    
+    for t in triangleList :
+        
+        pt1 = (int(t[0]), int(t[1]))
+        pt2 = (int(t[2]), int(t[3]))
+        pt3 = (int(t[4]), int(t[5]))
+        triangle = []
+        if rect_contains(r, pt1) and rect_contains(r, pt2) and rect_contains(r, pt3) :
+            x = 0 
+            p1 = True         
+            for p in points:
+                if p == pt1 and p1:
+                    triangle.append(x)
+                    p1 = False
+                x = x+1
+            y = 0
+            p2 = True
+            for p in points:
+                if p == pt2 and p2:
+                    triangle.append(y)
+                    p2 = False
+                y = y+1
+            z = 0 
+            p3 = True  
+            for p in points:
+                if p == pt3 and p3:            
+                    triangle.append(z)
+                    p3 = False
+                z = z+1
+                                    
+            tris.append(triangle)
+            
+    with open('tris_6-9.txt', 'w') as f:        
+        csv.writer(f, delimiter=' ').writerows(tris)
+	
+	
+	
+	
+	
+	
+	
+	
+	points1 = readPoints(filename1 + '.txt')
+      points2 = readPoints(filename2 + '.txt')
+      points = [];
+ 
+     
+      for i in xrange(0, len(points1)):
+          x = ( 1 - alpha ) * points1[i][0] + alpha * points2[i][0]
+          y = ( 1 - alpha ) * points1[i][1] + alpha * points2[i][1]
+          points.append((x,y))
+
+
+      imgMorph = np.zeros(img1.shape, dtype = img1.dtype)
+
+      
+      with open("tri.txt") as file :
+          for line in file :
+              x,y,z = line.split()
+            
+              x = int(x)
+              y = int(y)
+              z = int(z)
+            
+              t1 = [points1[x], points1[y], points1[z]]
+              t2 = [points2[x], points2[y], points2[z]]
+              t = [ points[x], points[y], points[z] ]
+
+              
+              morphTriangle(img1, img2, imgMorph, t1, t2, t, alpha)
+
+```
+
+
+
+
+
 Los valores generados por Face ++ fueron almacenados en archivos txt, que posteriormente fueron procesados para quedar en un formato mas facil de leer, el cual se muestra a continuacion.
 
 ```
